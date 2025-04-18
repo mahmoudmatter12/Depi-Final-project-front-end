@@ -1,17 +1,17 @@
-import Home from '@/components/home/Home'
+import { FeaturesSection } from '@/components/home/components/FeaturesSection'
+import { HeroSection } from '@/components/home/components/HeroSection'
+import Landing from '@/components/home/Landing'
 import React from 'react'
-// 
-// const user1 = {
-//   name: "John Doe",
-//   age: 30,
-//   role: "user-gust",
-// }
+
 
 function page() {
+
   return (
     <>
-      
-      <Home />
+      <Landing>
+        <HeroSection />
+        <FeaturesSection />
+      </Landing>
     </>
   )
 }

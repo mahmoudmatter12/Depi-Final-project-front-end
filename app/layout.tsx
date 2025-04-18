@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Decoration from "@/components/styling/Decoration";
+import AccountMenu from "@/components/AccountMenu";
+import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,11 +17,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth motion-reduce:scroll-auto">
       <body className="bg-gray-950 text-gray-100 antialiased motion-reduce:transform-none">
+          <AccountMenu />
         <main className="min-h-screen relative overflow-hidden">
           <Decoration />
           <div className="container mx-auto px-4 md:px-6 py-8 relative z-10">
             {children}
           </div>
+          <Footer />
         </main>
       </body>
     </html>
