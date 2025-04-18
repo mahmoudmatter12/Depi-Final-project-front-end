@@ -1,3 +1,4 @@
+import Home from '@/components/home/Home'
 import React from 'react'
 // 
 // const user1 = {
@@ -9,9 +10,8 @@ import React from 'react'
 function page() {
   return (
     <>
-    <h1>
-        HI CLS
-    </h1>
+      
+      <Home />
     </>
   )
 }
