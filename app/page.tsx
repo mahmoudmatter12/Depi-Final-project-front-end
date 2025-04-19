@@ -1,5 +1,6 @@
-import Home from '@/components/home/Home'
-import React from 'react'
+import AboutPage from './about'
+import Navbar from '@/components/Navbar/navbar'
+// import React from 'react'
 // 
 // const user1 = {
 //   name: "John Doe",
@@ -10,8 +11,11 @@ import React from 'react'
 function page() {
   return (
     <>
-      
-      <Home />
+      {/* <h1>
+        <a href="/about" className="hover:text-blue-500">About Us</a>
+      </h1> */}
+      <Navbar/>
+      <AboutPage/>
     </>
   )
 }
