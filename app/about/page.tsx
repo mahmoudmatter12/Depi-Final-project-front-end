@@ -1,13 +1,17 @@
-function AboutPage() {
+import { AboutHero } from "@/components/about/AboutHero"
+import { OurStory } from "@/components/about/OurStory"
+import { TestimonialsSection } from "@/components/about/TestimonialsSection"
+import { DevelopersSection } from "@/components/about/DevelopersSection"
+
+export default function AboutPage() {
   return (
     <>
-    <h1>
-        About page
-    </h1>
+      <main>
+        <AboutHero />
+        <OurStory />
+        <TestimonialsSection />
+        <DevelopersSection />
+      </main>
     </>
   )
 }
-
-export default AboutPage;
-
-// localhost:3000/about
