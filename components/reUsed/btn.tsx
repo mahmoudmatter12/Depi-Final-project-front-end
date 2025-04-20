@@ -1,24 +1,36 @@
-import { cn } from '@/lib/utils';
-import React from 'react'
-import { Button } from '../ui/button';
+"use client"
+
+import type React from "react"
+import { useMemo } from "react"
+import { cn } from "@/lib/utils"
+import { motion } from "framer-motion"
 
 interface BtnProps {
-    onClick?: () => void;
-    children:React.ReactNode
-    className?: string
-    type?: "fill" | "out_line" | "Danger" 
+  children: React.ReactNode
+  type?: "fill" | "out_line"
+  className?: string
+  onClick?: () => void
 }
 
-const btn_types = {
-    "out_line": "bg-transparent border-2 border-gray-500 hover:border-cyan-400 px-8 py-3 rounded-lg text-xl font-semibold transition",
-    "fill": "bg-cyan-600 hover:bg-cyan-700 rounded-lg text-xl font-semibold transition",
-    "Danger": "bg-red-600 hover:bg-red-700 text-white rounded-lg text-xl font-semibold transition"
+function Btn({ children, type = "fill", className, onClick }: BtnProps) {
+  // Memoize the class names to prevent unnecessary recalculations
+  const buttonClasses = useMemo(
+    () =>
+      cn(
+        "rounded-lg font-medium transition-all duration-200 flex items-center justify-center",
+        type === "fill"
+          ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:opacity-90"
+          : "border border-cyan-400 text-cyan-400 hover:bg-cyan-400/10",
+        className,
+      ),
+    [type, className],
+  )
+
+  return (
+    <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={onClick} className={buttonClasses}>
+      {children}
+    </motion.button>
+  )
 }
 
-export default function Btn({ children, onClick, className, type = "fill" }: BtnProps) {
-    return (
-        <Button className={cn(btn_types[type], className)} onClick={onClick}>
-            {children}
-        </Button>
-    )
-}
+export default Btn
